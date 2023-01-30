@@ -4,11 +4,6 @@ on:
   push:
     branches: [ "master" ]
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'definit la version de build'
-        required: true
-        default: '0.1'
 
 permissions:
   contents: read
