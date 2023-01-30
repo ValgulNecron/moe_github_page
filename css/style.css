@@ -1,1 +1,16 @@
+body {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+}
 
+.center-content {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+img {
+    width: 40%;
+    height: auto;
+    border-radius: 16px;
+}
