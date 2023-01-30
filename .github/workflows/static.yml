@@ -2,11 +2,11 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["master"]
+    branches: [ "master" ]
   workflow_dispatch:
     inputs:
       version:
-        description: 'definit la version de build'     
+        description: 'definit la version de build'
         required: true
         default: '0.1'
 
