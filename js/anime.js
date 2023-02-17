@@ -10,9 +10,9 @@ async function getIMG() {
     ];
     let randomEndpoint = endpoints[Math.floor(Math.random() * endpoints.length)];
     let response = await fetch(`${randomEndpoint}`, { mode: "no-cors" });
-    let json = await response.json();
+    let blob = await response.blob();
     let img = document.createElement("img");
-    img.src = json.url;
+    img.src = URL.createObjectURL(blob);
     let container = document.getElementById("image-container");
     container.appendChild(img);
 }
