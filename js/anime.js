@@ -9,7 +9,7 @@ async function getIMG() {
         'https://anime-api.hisoka17.repl.co/img/cuddle',
     ];
     let randomEndpoint = endpoints[Math.floor(Math.random() * endpoints.length)];
-    let response = await fetch(`https://proxy-ibmasyzzya-uc.a.run.app/${randomEndpoint}`);
+    let response = await fetch(`${randomEndpoint}`);
     let json = await response.json();
     let img = document.createElement("img");
     img.src = json.url;
