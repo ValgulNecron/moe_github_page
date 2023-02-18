@@ -1,38 +1,39 @@
+const endpointsWaifuPics = [
+    'waifu',
+    'neko',
+    'shinobu',
+    'megumin',
+    'bully',
+    'cuddle',
+    'cry',
+    'hug',
+    'awoo',
+    'kiss',
+    'lick',
+    'pat',
+    'smug',
+    'bonk',
+    'yeet',
+    'blush',
+    'smile',
+    'wave',
+    'highfive',
+    'handhold',
+    'nom',
+    'bite',
+    'glomp',
+    'slap',
+    'kill',
+    'kick',
+    'happy',
+    'wink',
+    'poke',
+    'dance',
+    'cringe'
+];
+
 async function getIMG() {
-    const endpoints = [
-        'waifu',
-        'neko',
-        'shinobu',
-        'megumin',
-        'bully',
-        'cuddle',
-        'cry',
-        'hug',
-        'awoo',
-        'kiss',
-        'lick',
-        'pat',
-        'smug',
-        'bonk',
-        'yeet',
-        'blush',
-        'smile',
-        'wave',
-        'highfive',
-        'handhold',
-        'nom',
-        'bite',
-        'glomp',
-        'slap',
-        'kill',
-        'kick',
-        'happy',
-        'wink',
-        'poke',
-        'dance',
-        'cringe'
-    ];
-    let randomEndpoint = endpoints[Math.floor(Math.random() * endpoints.length)];
+    let randomEndpoint = endpointsWaifuPics[Math.floor(Math.random() * endpointsWaifuPics.length)];
     let response = await fetch(`https://api.waifu.pics/sfw/${randomEndpoint}`);
     let json = await response.json();
     let img = document.createElement("img");
@@ -41,5 +42,18 @@ async function getIMG() {
     container.appendChild(img);
 }
 
+async function getQuote() {
+    const textContainer = document.getElementById("text-container");
+    fetch('https://animechan.vercel.app/api/random')
+        .then(response => response.json())
+        .then(quote => {
+            textContainer.innerText = `"${quote.quote}" - ${quote.character} (${quote.anime})`;
+        })
+        .catch(error => {
+            console.log(error);
+            textContainer.innerText = "Error fetching quote. Please try again later.";
+        });
+}
 
+getQuote();
 getIMG();
