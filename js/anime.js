@@ -44,7 +44,7 @@ async function getIMG() {
 
 async function getQuote() {
     const textContainer = document.getElementById("text-container");
-    fetch('https://animechan.xyz/api/random')
+    fetch('https://api.animechan.io/v1/quotes/random')
         .then(response => response.json())
         .then(quote => {
             textContainer.innerText = `"${quote.quote}" - ${quote.character} (${quote.anime})`;
