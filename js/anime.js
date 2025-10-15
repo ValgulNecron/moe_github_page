@@ -47,7 +47,7 @@ async function getQuote() {
     fetch('https://api.animechan.io/v1/quotes/random')
         .then(response => response.json())
         .then(quote => {
-            textContainer.innerText = `"${quote.quote}" - ${quote.character} (${quote.anime})`;
+            textContainer.innerText = `"${quote.data.content}" - ${quote.character.name} (${quote.anime.name})`;
         })
         .catch(error => {
             console.log(error);
